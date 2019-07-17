@@ -1,0 +1,17 @@
+
+public class Main {
+
+
+		static void main(String[] args){
+		
+				try {
+					Robot robot = new Robot();
+					
+				}catch(Exception ex) {
+					
+				}
+			
+		}
+		
+
+}
