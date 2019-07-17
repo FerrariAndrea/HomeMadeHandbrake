@@ -55,7 +55,7 @@ public class Main {
 	} 
 	
 	public static void emulate(String response) {
-		
+		//System.out.println(response);	
 		try {
 			
 			Robot robot = new Robot();
@@ -64,7 +64,7 @@ public class Main {
 			}else {
 				robot.keyRelease(MyConverter.getKeyEvent(response));
 			}
-					
+			
 
 		}catch(Exception ex) {
 			System.out.println("Recived cmd, but can't emulate it :(");

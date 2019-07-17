@@ -21,7 +21,7 @@ public class MyConverter {
 	}
 	public static Boolean isPress(String str) throws Exception {
 		try {
-			return 1==Integer.parseInt(str.split(";")[1].replace("[", ""));
+			return 1==Integer.parseInt(str.split(";")[1].replace("]", ""));
 		}catch(Exception e){
 			throw new Exception("String invalid format!");
 		}
