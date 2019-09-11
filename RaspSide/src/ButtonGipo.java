@@ -2,16 +2,21 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Observable;
 
+import gipo.devices.MyMatrixLed;
+import gipo.devices.MyMatrixLed.IMG;
+
 public class ButtonGipo extends Observable{
 
 		private static String exe_c_name = "./gipoController";
 		protected BufferedReader _reader;
 		protected int _capture;
 		protected int _keyEvent;
-	
+		private boolean matrixon;
+		private MyMatrixLed ml=null; 
 		
-		public ButtonGipo(int keyEvent){
+		public ButtonGipo(int keyEvent,MyMatrixLed ml){
 			this._keyEvent = keyEvent;
+			   this.ml=ml;
 		}
 		public void doJob() {
 			doJob(false);
@@ -27,6 +32,13 @@ public class ButtonGipo extends Observable{
 		 			_capture= Integer.parseInt(_reader.readLine());
 		 			setChanged();
 		 	        notifyObservers(getActualState());
+		 	        if(ml!=null) {
+		 	        	if(_capture==0) {
+		 	        		ml.draw(0,MyMatrixLed.ImgFactory(IMG.NOP));
+		 				}else {
+		 					ml.draw(0,MyMatrixLed.ImgFactory(IMG.BRAKE));
+		 				}
+		 	        }
 		 			if(debug) {
 		 				if(_capture==0) {
 				 			System.out.println("data = RELEASED");
@@ -44,9 +56,7 @@ public class ButtonGipo extends Observable{
 			return MyConverter.convert(_keyEvent, _capture==1);
 		}
 	
-		public static void main(String[] args) throws Exception {
-	 		new ButtonGipo(0).doJob(true);
-		}	
+		
 		
 		
 }

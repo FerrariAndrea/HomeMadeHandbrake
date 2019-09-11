@@ -11,7 +11,7 @@
 using namespace std;
 void setup() {
 	wiringPiSetup();
-	pinMode(PIN, OUTPUT);
+	pinMode(PIN, INPUT);
 }
 
 

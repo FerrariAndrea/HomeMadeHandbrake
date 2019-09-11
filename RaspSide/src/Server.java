@@ -20,7 +20,7 @@ public class Server {
 	private ServerSocket _listener ;
 	private ButtonGipo _bg;
 	
-	public Server(int port,ButtonGipo bg) throws IOException {
+	public Server(int port,ButtonGipo bg ) throws IOException {
 		_clients= new ArrayList<SingleSocketService>();		
 	 	 _listener = new ServerSocket(port);
 	 	 _bg = bg;
