@@ -33,7 +33,7 @@ public class Configuration {
 		this._serviceIp = _serviceIp;
 	}
 
-	private String _serviceIp ="11.0.0.18";
+	private String _serviceIp ="x.x.x.x";
 
 	
 	
